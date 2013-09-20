@@ -7,27 +7,21 @@ module.exports = function (grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 
-		//Process CSS (sass and autoprefixer)
-		sass: {
-			dev: {
-				options: {
-					style: 'expanded',
-          lineNumbers: true
-				},
-				files: {
-					'src/css/errors.css': 'src/sass/errors.scss',
-					'src/css/main.css': 'src/sass/main.scss'
-				},
-			},
-			dist: {
-				options: {
-					style: 'compressed'
-				},
-				files: {
-					'dist/css/errors.css': 'src/sass/errors.scss',
-					'dist/css/main.css': 'src/sass/main.scss'
-				},
-			}
+		compass: {
+		  dev: {
+		    options: {
+		      sassDir: 'src/scss',
+		      cssDir: 'src/css',
+		      environment: 'development'
+		    }
+		  },
+		  dist: {
+		    options: {              
+		      sassDir: 'dist/scss',
+		      cssDir: 'dist/css',
+		      environment: 'production'
+		    }
+		  }
 		},
 
 		autoprefixer: {
@@ -36,12 +30,14 @@ module.exports = function (grunt) {
 			},
 			dev: {
 				files: [
-					{ src: ['src/css/main.css'], dest: 'src/css/main.css' }
+					{ src: ['src/css/main.css'], dest: 'src/css/main.css' },
+					{ src: ['src/css/errors.css'], dest: 'src/css/errors.css' }
 				]
 			},
 			dist: {
 				files: [
-					{ src: ['src/css/main.css'], dest: 'dist/css/main.css' }
+					{ src: ['src/css/main.css'], dest: 'dist/css/main.css' },
+					{ src: ['src/css/errors.css'], dest: 'dist/css/errors.css' }
 				]
 			},
 		},
@@ -179,8 +175,8 @@ module.exports = function (grunt) {
 		watch: {
 				/* watch to see if the sass files are changed, compile and add prefixes */
 				css: {
-					files: ['src/sass/**/*.{scss,sass}'],
-					tasks: ['sass:dev', 'autoprefixer:dev']
+					files: ['src/scss/**/*.{scss,sass}'],
+					tasks: ['compass:dev', 'autoprefixer:dev']
 				},
 
 				/* watch our files for change, reload */
@@ -194,6 +190,6 @@ module.exports = function (grunt) {
 		});
 
 	//Task list
-	grunt.registerTask('build', ['clean','copy:dist', 'sass:dist', 'autoprefixer:dist', 'modernizr', 'concat:dist', 'uglify:dist', 'useminPrepare', 'usemin', 'htmlmin:dist', 'imagemin']);
+	grunt.registerTask('build', ['clean','copy:dist', 'compass:dist', 'autoprefixer:dist', 'modernizr', 'concat:dist', 'uglify:dist', 'useminPrepare', 'usemin', 'htmlmin:dist', 'imagemin']);
 	grunt.registerTask('default', ['watch']);
 };

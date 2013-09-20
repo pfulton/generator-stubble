@@ -1,7 +1,7 @@
 {
   "name": "generator-stubble",
   "version": "0.1.0",
-  "description": "A website and front end starter kit for Yeoman",
+  "description": "A Yeoman generator for Stubble, Bearded's Front End Starter Kit",
   "keywords": [
     "yeoman-generator",
     "kickstart",
@@ -11,8 +11,8 @@
     "livereload",
     "html5boilerplate"
   ],
-  "homepage": "https://github.com/",
-  "bugs": "https://github.com/",
+  "homepage": "https://github.com/pfulton/generator-stubble",
+  "bugs": "https://github.com/pfulton/generator-stubble/issues",
   "author": {
     "name": "Patrick Fulton",
     "email": "patrick@bearded.com",
@@ -21,7 +21,7 @@
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/"
+    "url": "git@github.com:pfulton/generator-stubble.git"
   },
   "scripts": {
     "test": "mocha"

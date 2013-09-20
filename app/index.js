@@ -41,8 +41,8 @@ StarterGenerator.prototype.app = function app() {
   this.mkdir('src/js');
   this.mkdir('src/js/plugins');
   this.mkdir('src/js/vendor');
-  this.mkdir('src/sass');
-  this.mkdir('src/sass/lib');
+  this.mkdir('src/scss');
+  this.mkdir('src/scss/lib');
   this.mkdir('src/css');
   this.mkdir('dist');
   this.mkdir('dist/js');
@@ -52,14 +52,26 @@ StarterGenerator.prototype.app = function app() {
   //JS files
   this.template('src/js/main.js', 'src/js/main.js');
 
-  //SASS files
-  this.template('src/sass/lib/_grid.scss', 'src/sass/lib/_grid.scss');
-  this.template('src/sass/lib/_variables.scss', 'src/sass/lib/_variables.scss');
-  this.template('src/sass/lib/_mediaqueries.scss', 'src/sass/lib/_mediaqueries.scss');
-  this.template('src/sass/lib/_general-mixins.scss', 'src/sass/lib/_general-mixins.scss');
-  this.template('src/sass/lib/_typographic-mixins.scss', 'src/sass/lib/_typographic-mixins.scss');
-  this.template('src/sass/main.scss', 'src/sass/main.scss');
-  this.template('src/sass/errors.scss', 'src/sass/errors.scss');
+  //scss files
+  // lib files
+  this.template('src/scss/lib/_grid.scss', 'src/scss/lib/_grid.scss');
+  this.template('src/scss/lib/_variables.scss', 'src/scss/lib/_variables.scss');
+  this.template('src/scss/lib/_mediaqueries.scss', 'src/scss/lib/_mediaqueries.scss');
+  this.template('src/scss/lib/_general-mixins.scss', 'src/scss/lib/_general-mixins.scss');
+  this.template('src/scss/lib/_typographic-mixins.scss', 'src/scss/lib/_typographic-mixins.scss');
+
+  // partials
+  this.template('src/scss/_general.scss', 'src/scss/_general.scss');
+  this.template('src/scss/_header.scss', 'src/scss/_header.scss');
+  this.template('src/scss/_footer.scss', 'src/scss/_footer.scss');
+  this.template('src/scss/_homepage.scss', 'src/scss/_homepage.scss');
+  this.template('src/scss/_internal.scss', 'src/scss/_internal.scss');
+  this.template('src/scss/_forms.scss', 'src/scss/_forms.scss');
+  this.template('src/scss/_notifications.scss', 'src/scss/_notifications.scss');
+
+  // compiled/standalone files
+  this.template('src/scss/main.scss', 'src/scss/main.scss');
+  this.template('src/scss/errors.scss', 'src/scss/errors.scss');
 
   //Root files
   this.template('src/index.html', 'src/index.html');
