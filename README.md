@@ -21,8 +21,6 @@ Generator-stubble is Bearded's "non-Rails" way of quick-starting a project. Stub
 ## Getting Started
 
 - Check that you have [Node.js](http://nodejs.org/) and [Ruby](http://www.ruby-lang.org/) installed
-- Install the generator: `npm install -g generator-stubble`
-- Run: `yo stubble`
 
 ## More on Yeoman and Grunt
 
